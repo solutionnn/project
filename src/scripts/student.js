@@ -38,7 +38,7 @@ groupSelect.addEventListener('change', function () {
 
 function populateCourses(faculty) {
     const courses = {
-        'Факультет 1': ['1 курс', '2 курс'],
+        'Факультет 11': ['1 курс', '2 курс'],
         'Факультет 2': ['1 курс', '2 курс']
     };
     populateSelect(courses[faculty], courseSelect);
