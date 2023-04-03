@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+    <link rel="stylesheet" href="../styles/student.css">
+</head>
+<body>
+
+
+
+<div class="container">
+    <h1>Розклад університету</h1>
+    <div class="selectors">
+        <select id="faculty-select">
+            <option value="">Оберіть факультет</option>
+            <option value="Факультет 1">Факультет 1</option>
+            <option value="Факультет 2">Факультет 2</option>
+        </select>
+        <select id="course-select" disabled>
+            <option value="">Оберіть курс</option>
+            <option value="1 курс">1 курс</option>
+            <option value="2 курс">2 курс</option>
+        </select>
+        <select id="group-select" disabled>
+            <option value="">Оберіть группу</option>
+            <option value="1 группа">1 група</option>
+            <option value="2 группа">2 група</option>
+        </select>
+    </div>
+    <table id="schedule" class="hidden">
+        <thead>
+        <tr>
+            <th>Час</th>
+            <th>Предмет</th>
+            <th>Викладач</th>
+            <th>Аудиторія</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script type="application/javascript" src="../scripts/student.js"></script> <!-- приклад підключення скрипта з папки pages -->
+</body>
+</html>
