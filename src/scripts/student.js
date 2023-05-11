@@ -1,17 +1,67 @@
 const facultySelect = document.getElementById('faculty-select');
 const courseSelect = document.getElementById('course-select');
 const groupSelect = document.getElementById('group-select');
+const daySelect = document.getElementById('day-select');
 const scheduleTable = document.getElementById('schedule');
-const scheduleBody = scheduleTable.querySelector('tbody');
+const selectTitle = {
+    course: 'Оберіть курс',
+    group: 'Оберіть группу',
+    day: 'Оберіть день тижня',
+    default: 'Оберіть варіант'
+}
+
+loadSchedule();
+if (!generalSchedule.length) {
+    alert('Розклад не знайдено');
+}
+
+(function getFaculties() {
+    const faculties = new Set(generalSchedule.map((item) => item.faculty));
+    for (const value of faculties.values()) {
+        const facultyOption = document.createElement('option');
+        facultyOption.innerText = value;
+        facultySelect.appendChild(facultyOption);
+    }
+})();
+
+function addSelectOption(select, options, defTitle = selectTitle.default) {
+    while(select.firstChild) {
+        select.firstChild.remove();
+    }
+    const defOptionElement = document.createElement('option');
+    defOptionElement.innerText = defTitle;
+    defOptionElement.value = null;
+    defOptionElement.disabled = true;
+    defOptionElement.selected = true;
+    select.appendChild(defOptionElement);
+    for (const value of options) {
+        const optionElement = document.createElement('option');
+        optionElement.value = value;
+        optionElement.innerText = value;
+        select.appendChild(optionElement);
+    }
+}
 
 facultySelect.addEventListener('change', function () {
     const faculty = facultySelect.value;
     if (faculty) {
         courseSelect.disabled = false;
-        populateCourses(faculty);
+        const courses = generalSchedule
+            .filter((item) => item.faculty === faculty)
+            .map((item) => item.course);
+        addSelectOption(courseSelect, new Set(courses).values(), selectTitle.course);
+        groupSelect.disabled = true;
+        addSelectOption(groupSelect, [], selectTitle.group);
+        daySelect.disabled = true;
+        addSelectOption(daySelect, [], selectTitle.day);
+        scheduleTable.classList.add('hidden');
     } else {
         courseSelect.disabled = true;
+        addSelectOption(courseSelect, [], selectTitle.course);
         groupSelect.disabled = true;
+        addSelectOption(groupSelect, [], selectTitle.group);
+        daySelect.disabled = true;
+        addSelectOption(daySelect, [], selectTitle.day);
         scheduleTable.classList.add('hidden');
     }
 });
@@ -20,9 +70,18 @@ courseSelect.addEventListener('change', function () {
     const course = courseSelect.value;
     if (course) {
         groupSelect.disabled = false;
-        populateGroups(course);
+        const groups = generalSchedule
+            .filter((item) => item.course === course && item.faculty === facultySelect.value)
+            .map((item) => item.group);
+        addSelectOption(groupSelect, new Set(groups).values(), selectTitle.group);
+        daySelect.disabled = true;
+        addSelectOption(daySelect, [], selectTitle.day);
+        scheduleTable.classList.add('hidden');
     } else {
         groupSelect.disabled = true;
+        addSelectOption(groupSelect, [], selectTitle.group);
+        daySelect.disabled = true;
+        addSelectOption(daySelect, [], selectTitle.day);
         scheduleTable.classList.add('hidden');
     }
 });
@@ -30,70 +89,45 @@ courseSelect.addEventListener('change', function () {
 groupSelect.addEventListener('change', function () {
     const group = groupSelect.value;
     if (group) {
-        showSchedule(group);
+        daySelect.disabled = false;
+        const days = generalSchedule
+            .filter((item) => item.faculty === facultySelect.value && item.course === courseSelect.value && item.group === group)
+            .map((item) => item.day);
+        addSelectOption(daySelect, new Set(days).values(), selectTitle.day);
+        scheduleTable.classList.add('hidden');
+    } else {
+        daySelect.disabled = true;
+        addSelectOption(daySelect, [], selectTitle.day);
+        scheduleTable.classList.add('hidden');
+    }
+});
+
+daySelect.addEventListener('change', function () {
+    const day = daySelect.value;
+    if (day) {
+        const scheduleBody = scheduleTable.querySelector('tbody');
+        while (scheduleBody.firstChild) {
+            scheduleBody.firstChild.remove();
+        }
+        showSchedule(scheduleBody);
     } else {
         scheduleTable.classList.add('hidden');
     }
 });
 
-function populateCourses(faculty) {
-    const courses = {
-        'Факультет 11': ['1 курс', '2 курс'],
-        'Факультет 2': ['1 курс', '2 курс']
-    };
-    populateSelect(courses[faculty], courseSelect);
-}
-
-function populateGroups(course) {
-    const groups = {
-        '1 курс': ['1 группа', '2 группа'],
-        '2 курс': ['1 группа', '2 группа']
-    };
-    populateSelect(groups[course], groupSelect);
-}
-
-function populateSelect(options, select) {
-    select.innerHTML = '';
-    const defaultOption = document.createElement('option');
-    defaultOption.value = '';
-    defaultOption.text = 'Выберите ' + select.id;
-    select.add(defaultOption);
-    options.forEach(function (option) {
-        const newOption = document.createElement('option');
-        newOption.value = option;
-        newOption.text = option;
-        select.add(newOption);
-    });
-}
-
-const schedule = {
-    '1 группа': [
-        {time: '8:00-10:00', subject: 'Вища математика', teacher: 'Іванов Іван Іванович', room: '101'},
-        {time: '12:15-13:15', subject: 'Фізика', teacher: 'Петров Петро Петрович', room: '103'}
-    ],
-    '2 группа': [
-        {time: '8:30-10:50', subject: 'Істория', teacher: 'Сідоров Сідор Сідорович', room: '104'},
-        {time: '10:15-12:15', subject: 'Філософія', teacher: 'Козлов Кізьма Козьміч', room: '105'}
-    ]
-};
-
-function showSchedule(group) {
-    scheduleBody.innerHTML = '';
-    schedule[group].forEach(function (lecture) {
-        const row = document.createElement('tr');
-        const timeCell = document.createElement('td');
-        timeCell.textContent = lecture.time;
-        row.appendChild(timeCell);
-        const subjectCell = document.createElement('td');
-        subjectCell.textContent = lecture.subject;
-        row.appendChild(subjectCell);
-        const teacherCell = document.createElement('td');
-        teacherCell.textContent = lecture.teacher;
-        row.appendChild(teacherCell);
-        const roomCell = document.createElement('td');
-        roomCell.textContent = lecture.room;
-        row.appendChild(roomCell);
-        scheduleBody.appendChild(row);
-    });
+function showSchedule(tbody) {
+    const scheduleList = generalSchedule.filter((item) =>
+        item.faculty === facultySelect.value && item.course === courseSelect.value && item.group === groupSelect.value && item.day === daySelect.value
+    );
+    for (const item of scheduleList) {
+        const tr = document.createElement('tr');
+        const scheduleData = [item.time, item.subject, 'Сковорода Григорій Саввич', item.room];
+        for (const prop of scheduleData) {
+            const td = document.createElement('td');
+            td.innerText = prop;
+            tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+    }
     scheduleTable.classList.remove('hidden');
 }
