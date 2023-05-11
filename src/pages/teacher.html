@@ -1,1 +1,64 @@
-/////////
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сторінка викладача</title>
+    <link rel="stylesheet" href="../styles/teacher.css">
+</head>
+<body>
+
+<h1>Розклад</h1>
+
+<form id="scheduleForm">
+    <label for="dayInput">День тижня:</label>
+    <select id="dayInput" name="day" required>
+        <option value="Понеділок">Понеділок</option>
+        <option value="Вівторок">Вівторок</option>
+        <option value="Середа">Середа</option>
+        <option value="Четвер">Четвер</option>
+        <option value="П'ятниця">П'ятниця</option>
+    </select>
+    <label for="timeInput">Час:</label>
+    <select id="timeInput" name="time" required>
+        <option value="8:30-9:50">8:30-9:50</option>
+        <option value="10:00-11:20">10:00-11:20</option>
+        <option value="11:30-12:50">11:30-12:50</option>
+        <option value="13:30-14:50">13:30-14:50</option>
+        <option value="15:00-16:20">15:00-16:20</option>
+        <option value="16:30-17:50">16:30-17:50</option>
+    </select>
+    <label for="facultyInput">Факультет:</label>
+    <select id="facultyInput" name="faculty" required>
+        <option value="ІТ">ІТ</option>
+        <option value="Електромеханічний">Електромеханічний</option>
+        <option value="Нафтогаз">Нафтогаз</option>
+        <option value="Будівельний">Будівельний</option>
+        <option value="Економічний">Економічний</option>
+    </select>
+    <label for="courseInput">Курс:</label>
+    <select id="courseInput" name="course" required>
+        <option value="1 курс">1 курс</option>
+        <option value="2 курс">2 курс</option>
+        <option value="3 курс">3 курс</option>
+        <option value="4 курс">4 курс</option>
+        <option value="5 курс">5 курс</option>
+    </select>
+    <label for="groupInput">Група:</label>
+    <select id="groupInput" name="group" required>
+        <option value="1 група">1 група</option>
+        <option value="2 група">2 група</option>
+    </select>
+    <label for="subjectInput">Предмет:</label>
+    <input type="text" id="subjectInput" name="subject" required>
+    <label for="roomInput">Аудиторія:</label>
+    <input type="text" id="roomInput" name="room" required>
+
+    <button type="submit">Зберегти розклад</button>
+</form>
+
+<div id="scheduleTableContainer"></div>
+<script src="../scripts/storage.service.js"></script>
+<script src="../scripts/schedule.service.js"></script>
+<script src="../scripts/teacher.js"></script>
+</body>
+</html>
