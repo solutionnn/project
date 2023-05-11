@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Student</title>
@@ -5,26 +7,22 @@
 </head>
 <body>
 
-
-
 <div class="container">
-    <h1>Розклад університету</h1>
+    <h1 id="schedule-heading">Розклад університету</h1>
     <div class="selectors">
         <select id="faculty-select">
-            <option value="">Оберіть факультет</option>
-            <option value="Факультет 1">Факультет 1</option>
-            <option value="Факультет 2">Факультет 2</option>
+            <option disabled selected>Оберіть факультет</option>
         </select>
         <select id="course-select" disabled>
-            <option value="">Оберіть курс</option>
-            <option value="1 курс">1 курс</option>
-            <option value="2 курс">2 курс</option>
+            <option disabled selected>Оберіть курс</option>
         </select>
         <select id="group-select" disabled>
-            <option value="">Оберіть группу</option>
-            <option value="1 группа">1 група</option>
-            <option value="2 группа">2 група</option>
+            <option disabled selected>Оберіть группу</option>
         </select>
+        <select id="day-select" disabled>
+            <option disabled selected>Оберіть день тижня</option>
+        </select>
+
     </div>
     <table id="schedule" class="hidden">
         <thead>
@@ -40,6 +38,8 @@
     </table>
 </div>
 
-<script type="application/javascript" src="../scripts/student.js"></script> <!--  приклад підключення скрипта з папки pages -->
+<script src="../scripts/storage.service.js"></script>
+<script src="../scripts/schedule.service.js"></script>
+<script src="../scripts/student.js"></script>
 </body>
 </html>
