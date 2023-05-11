@@ -1,0 +1,73 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
+nav {
+    background-color: #303030;
+    border-radius: 4px; /* заокруглення кутів */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    border-radius: 4px; 
+    line-height: 2em; 
+    text-align: center;
+}
+
+nav a:hover {
+    transform: translateY(-2px);
+}
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: url("img/fon6.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.icon_teacher {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("img/teacher3rev.png");
+    background-size: cover;
+    margin-right: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icon_teacher:hover {
+    transform: translate(0, -2px);
+}
+
+.icon_student {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("img/student3rev.png");
+    background-size: cover;
+    margin-right: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+.icon_student:hover {
+    transform: translate(0, -2px);
+}
+
+li a {
+    font-family: Arial, sans-serif;
+}
