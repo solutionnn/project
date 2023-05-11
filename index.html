@@ -2,16 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Мій проект</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>Розклад університету</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="pages/teacher.html"><span class="icon_teacher"></span>Кабінет викладача</a></li>
+            <li><a href="pages/student.html"><span class="icon_student"></span>Кабінет студента</a></li>
+        </ul>
+    </nav>
+</header>
 
-<h1>Приклад тексту тут</h1>
 
-<p><button id="button0"><a href='src/pages/student.html'> Сторінка студента</a></button></p> <!-- приклад кнопки переходу на іншу сторінку  -->
-
-<script type="application/javascript" src="src/scripts/student.js"></script> <!-- прииклад підключення скрипта з папки pages -->
-<script type="application/javascript" src="index.js"></script>  <!-- приклад підключення скрипта з корня папки -->
+<script src="index.js"></script>
 </body>
 </html>
