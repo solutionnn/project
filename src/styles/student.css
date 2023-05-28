@@ -3,10 +3,12 @@ html, body {
 }
 
 body {
-    background-image: url("../img/fon6.jpg");
+    background-image: url("../img/student2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
+    background-attachment: fixed; /* фіксований беграунд */
+    height: 100vh; /* висота фона = висоті екрану */
+    margin: 0;
 }
 
 /*Тут блюр на сторінці*/
@@ -15,9 +17,10 @@ body::before {
     position: fixed;
     width: 100%;
     height: 100%;
-    left: -6px;
+    left: 0px;
+    top: -5px;
     z-index: -1;
-    backdrop-filter: blur(5px); /* блюр (непрозорість фону)*/
+    backdrop-filter: blur(0px); /* блюр - було 5px */
     opacity: 0.8;
 }
 
@@ -57,4 +60,7 @@ table td {
 
 #schedule-heading {
     color: #000000;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
 }
