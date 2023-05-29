@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dd6a48e8-0409-4004-9970-19f85483d852" name="Changes" comment="03.04 Add student page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,8 @@
       <workItem from="1684672472775" duration="301000" />
       <workItem from="1684857818049" duration="1122000" />
       <workItem from="1685024536813" duration="2395000" />
-      <workItem from="1685280617315" duration="166000" />
+      <workItem from="1685280617315" duration="185000" />
+      <workItem from="1685354816965" duration="342000" />
     </task>
     <task id="LOCAL-00001" summary="03.04 Add student page">
       <created>1680540733510</created>
@@ -110,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685024854184</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="03.04 Add student page">
+      <created>1685297674788</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685297674788</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

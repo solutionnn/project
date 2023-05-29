@@ -42,7 +42,7 @@ html, body {
 }
 
 body {
-    background-image: url("img/menu2.jpg");
+    background-image: url("src/img/menu2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed; /* фіксований беграунд */
@@ -54,7 +54,7 @@ body {
     display: inline-block;
     width: 48px;
     height: 48px;
-    background-image: url("img/teacher3rev.png");
+    background-image: url("src/img/teacher3rev.png");
     background-size: cover;
     margin-right: 8px;
     transition: transform 0.2s ease-in-out;
@@ -68,7 +68,7 @@ body {
     display: inline-block;
     width: 48px;
     height: 48px;
-    background-image: url("img/student3rev.png");
+    background-image: url("src/img/student3rev.png");
     background-size: cover;
     margin-right: 8px;
     transition: transform 0.2s ease-in-out;
