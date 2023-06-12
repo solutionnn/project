@@ -8,5 +8,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="malihu-custom-scrollbar-plugin" level="application" />
+    <orderEntry type="library" name="normalize" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
   </component>
 </module>

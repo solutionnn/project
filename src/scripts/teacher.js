@@ -70,7 +70,7 @@ document.getElementById('scheduleForm').addEventListener('submit', function (eve
         // add edit and delete schedule buttons
         const editBtn = document.createElement('button');
         editBtn.innerText = 'Редагувати розклад';
-        editBtn.style.backgroundColor = '#808080FF';
+        editBtn.style.backgroundColor = '#55788d';
         editBtn.style.color = "white";
         editBtn.onclick = function() {
             day.value = generalSchedule[i].day;
@@ -84,7 +84,7 @@ document.getElementById('scheduleForm').addEventListener('submit', function (eve
         };
         const deleteBtn = document.createElement('button');
         deleteBtn.innerText = 'Видалити розклад';
-        deleteBtn.style.backgroundColor = '#808080FF';
+        deleteBtn.style.backgroundColor = '#55788d';
         deleteBtn.style.color = "white";
         deleteBtn.onclick = function() {
             const scheduleTable = document.getElementById(`schedule_${i + 1}`);
